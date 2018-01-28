@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title *ngIf="item">{{ item.vTags }}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onNeedsHelp()">
+        <ion-icon name="help-buoy"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngIf="item">
+    
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="/assets/img/speakers/bear.jpg">
+      </ion-avatar>
+      <p>November 5, 1955</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p ion-text color="dark">{{ item.body }}</p>
+      <ion-note>
+        {{ item.vTags }}
+      </ion-note>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+  
+    <ion-item *ngFor="let comment of comments;">
+      <p text-wrap ion-text color="dark">{{ comment.body }}</p>
+      <ion-note>
+        {{ comment.created_at }}
+      </ion-note>
+      <ion-item-divider></ion-item-divider>
+    </ion-item>
+  
+  </ion-card>
+
+  <button (click)="addComment()" ion-button block>Comment</button>
+  
+  
+
+</ion-content>

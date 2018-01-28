@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Experiences</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-fab top right edge>
+    <button ion-fab mini color="primary" (click)="addItem()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+  
+    <ion-card *ngFor="let item of currentItems" (click)="openItem(item)">
+    
+      <ion-card-content>
+        <p ion-text color="dark">{{ item.body }}</p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>{{ item.__meta__.comments_count }} Comments</div>
+          </button>
+        </ion-col>
+        
+        <ion-col align-self-center push-4>
+          <ion-note>{{ item.vTags }}</ion-note>
+        </ion-col>
+      </ion-row>
+      
+    </ion-card>
+    
+
+</ion-content>
